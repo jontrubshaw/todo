@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="{{ url_for('index') }}">Home</a>
+                {% if current_user.is_anonymous %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                {% else %}
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                {% endif %}
+            </nav>
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </body>
+</html>
